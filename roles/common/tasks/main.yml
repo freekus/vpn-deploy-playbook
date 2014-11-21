@@ -1,6 +1,12 @@
 ---
-#install common packages
+# update and upgrade with apt
 
+- name: updates a server
+  apt: update_cache=yes
+- name: upgrade a server
+  apt: upgrade=full
+
+#install common packages
 - name: install editor
   action: apt pkg={{ item }} state=installed
   with_items:
